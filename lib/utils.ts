@@ -1,7 +1,8 @@
 import { type ClassValue, clsx } from "clsx";
 import { toast } from "sonner";
 import { twMerge } from "tailwind-merge";
-export type DataPoint = { size: number; price: number };
+type DataPoint = { size: number; price: number };
+type Model = { m: number; b: number };
 
 const ERROR_MESSAGE =
   "An unexpected error occurred while processing your request. Please try again later.";
@@ -17,3 +18,4 @@ function showErrorToast() {
 }
 
 export { cn, showErrorToast };
+export type { DataPoint, Model };

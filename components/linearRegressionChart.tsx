@@ -2,6 +2,7 @@
 
 import React from "react";
 import { HousePrice } from "@prisma/client";
+import { DataPoint } from "@/lib/utils";
 import {
   ScatterChart,
   Scatter,
@@ -23,7 +24,7 @@ import {
 // ];
 
 interface Props {
-  predictedPoint?: HousePrice;
+  predictedPoint: DataPoint | null;
   data: HousePrice[];
 }
 
@@ -31,11 +32,29 @@ const LinearRegressionChart = ({ predictedPoint, data }: Props) => (
   <ScatterChart
     width={600}
     height={400}
-    margin={{ top: 20, right: 20, bottom: 10, left: 10 }}
+    margin={{ top: 20, right: 10, bottom: 30, left: 30 }}
   >
     <CartesianGrid />
-    <XAxis type="number" dataKey="size" name="X Axis" />
-    <YAxis type="number" dataKey="price" name="Y Axis" />
+    <XAxis
+      type="number"
+      dataKey="size"
+      name="X Axis"
+      label={{
+        key: "xAxisLabel",
+        value: "house size",
+        position: "bottom",
+      }}
+    />
+    <YAxis
+      type="number"
+      dataKey="price"
+      name="Y Axis"
+      // label={{
+      //   key: "yAxisLabel",
+      //   value: "house size",
+      //   position: "bottom",
+      // }}
+    />
     <Tooltip cursor={{ strokeDasharray: "3 3" }} />
     <Scatter name="Data Points" data={data} fill="#8884d8" />
     {predictedPoint && (

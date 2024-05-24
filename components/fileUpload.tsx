@@ -67,12 +67,12 @@ const FileUpload = () => {
         className="hidden"
       />
       <Button
-        className="flex w-full items-center justify-center gap-x-2 py-5"
         variant="outline"
-        size="lg"
+        size="sm"
+        className="ml-auto hidden h-8 lg:flex"
         onClick={handleButtonClick}
       >
-        <Plus className="size-6 flex-shrink-0" />
+        <Plus className="mr-2 h-4 w-4" />
         <p>Import file</p>
       </Button>
     </div>

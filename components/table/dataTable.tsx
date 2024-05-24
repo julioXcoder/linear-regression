@@ -8,6 +8,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -33,6 +34,7 @@ import {
   VisibilityState,
 } from "@tanstack/react-table";
 import { Filter, Plus } from "lucide-react";
+import FileUpload from "../fileUpload";
 import { useState } from "react";
 
 interface DataTableProps<TData, TValue> {
@@ -76,6 +78,7 @@ const DataTable = <TData, TValue>({
           <CardDescription>Overview of house prices.</CardDescription>
         </div>
         <div className="flex items-center gap-2">
+          <FileUpload />
           <DataTableViewOptions table={table} />
         </div>
       </CardHeader>
@@ -129,12 +132,12 @@ const DataTable = <TData, TValue>({
           </TableBody>
         </Table>
       </CardContent>
+      <CardFooter>
+        <div className="flex items-center justify-end py-2">
+          <DataTablePagination table={table} />
+        </div>
+      </CardFooter>
     </Card>
-    // <div>
-    //   <div className="flex items-center justify-end py-2">
-    //     <DataTablePagination table={table} />
-    //   </div>
-    // </div>
   );
 };
 
